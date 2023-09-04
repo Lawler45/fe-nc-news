@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { getArticle } from "./api";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Comments from "./Comments.jsx";
 
 const ArticleView = () => {
   const [article, setArticle] = useState({});
@@ -9,7 +10,6 @@ const ArticleView = () => {
   const [votes, setVotes] = useState(0);
 
   const { article_id } = useParams();
-  const { created_at } = useParams();
 
   const articleReq = `https://lawler-news.onrender.com/api/articles/${article_id}`;
 
@@ -42,7 +42,8 @@ const ArticleView = () => {
   };
 
   return (
-    <div className="articleView">
+    <div>
+    <section className="articleView">
       <h2 className="title">{article.title}</h2>
       <p className="author">Written by {article.author}</p>
       <img className="articleImg"src={article.article_img_url}></img>
@@ -50,6 +51,8 @@ const ArticleView = () => {
       <p className="votes">Vote: {votes}</p>
       <button className="voteButton"onClick={handleUpVote}>Up Vote!</button>
       <p className="date">Published {publishedDate}</p>
+    </section>
+    <Comments />
     </div>
   );
 };

@@ -13,4 +13,11 @@ return axios.get(articleReq)
 return data.article
 })
 }
-export {getArticles, getArticle}
+
+const getComments = (commentsReq) => {
+    return axios.get(commentsReq)
+    .then(({data})=>{
+        return data.comments
+    })
+}
+export {getArticles, getArticle, getComments}
