@@ -1,16 +1,16 @@
 #root {
-  background-color: #1d2228;
+  background-color: white;
 }
 
 .header {
-  color: #fb8122;
+  color: #424242;
   text-align: center;
   padding: 4px;
-  background-color: #424242;
+  background-color: #DDD0C8;
 }
 
 a {
-  color: #e1e2e2;
+  color: #424242;
   text-decoration: none;
 }
 
@@ -25,7 +25,7 @@ a {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #fb8122;
+  border: 2px solid #424242;
   margin: 1rem;
   border-radius: 8px;
   max-width: 90%;
@@ -34,12 +34,28 @@ a {
   justify-self: center;
   padding: 1rem 0;
   text-align: center;
-  background-color: #424242;
+  background-color: #DDD0C8;
 }
 
 img {
   max-width: 95%;
   background-color: #424242;
+}
+
+.title {
+  background-color: #424242;
+  padding: 2%;
+  color: #DDD0C8;
+}
+
+.author {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homeLink {
+  display: flex;
+  padding-left: 4%;
 }
 
 @media (max-width: 800px) {

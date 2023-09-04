@@ -1,9 +1,16 @@
 import axios from "axios";
 
-const getArticles = (articleReq) => {
-    return axios.get(articleReq)
+const getArticles = (articlesReq) => {
+    return axios.get(articlesReq)
     .then(({data})=>{
         return data.articles
     })
 }
-export {getArticles}
+
+const getArticle = (articleReq) => {
+return axios.get(articleReq)
+.then(({data}) => {
+return data.article
+})
+}
+export {getArticles, getArticle}
