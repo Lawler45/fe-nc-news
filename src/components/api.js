@@ -1,21 +1,26 @@
 import axios from "axios";
 
-const getArticles = (articlesReq) => {
-    return axios.get(articlesReq)
+const articleApi = axios.create({
+    baseURL: 'https://lawler-news.onrender.com/api/articles'
+})
+
+const getArticles = () => {
+    return axios.get('https://lawler-news.onrender.com/api/articles')
     .then(({data})=>{
         return data.articles
     })
 }
 
-const getArticle = (articleReq) => {
-return axios.get(articleReq)
+const getArticle = (article_id) => {
+return articleApi.get(`/${article_id}`)
 .then(({data}) => {
 return data.article
 })
 }
 
-const getComments = (commentsReq) => {
-    return axios.get(commentsReq)
+const getComments = (article_id) => {
+    console.log(article_id)
+    return articleApi.get(`/${article_id}/comments`)
     .then(({data})=>{
         return data.comments
     })

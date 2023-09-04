@@ -11,11 +11,9 @@ const ArticleView = () => {
 
   const { article_id } = useParams();
 
-  const articleReq = `https://lawler-news.onrender.com/api/articles/${article_id}`;
-
   useEffect(() => {
     setLoading(true);
-    getArticle(articleReq).then((article) => {
+    getArticle(article_id).then((article) => {
       setLoading(false);
       setArticle(article);
     });
@@ -31,9 +29,7 @@ const ArticleView = () => {
     axios
       .patch(apiUrl)
       .then((response) => {
-        console.log(response)
         const updatedVotes = votes + 1;
-        console.log(updatedVotes, 'update voted ')
         setVotes(updatedVotes);
       })
       .catch((error) => {

@@ -7,10 +7,9 @@ const Comments = () => {
 
   const { article_id } = useParams();
 
-  const commentsReq = `https://lawler-news.onrender.com/api/articles/${article_id}/comments`;
 
   useEffect(() => {
-    getComments(commentsReq).then((comments) => {
+    getComments(article_id).then((comments) => {
       setComments(comments);
     });
   }, [comments]);
