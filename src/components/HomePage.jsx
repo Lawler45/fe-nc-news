@@ -12,7 +12,7 @@ const HomePage = () => {
         setLoading(false);
         setArticles(data)
       });
-  }, []);
+  }, [setArticles]);
 
   return (
     <section className="articleContainer">
