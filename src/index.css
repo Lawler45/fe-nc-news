@@ -22,6 +22,7 @@ a {
 
 .articleCard {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   border: 2px solid #fb8122;
@@ -39,4 +40,16 @@ a {
 img {
   max-width: 95%;
   background-color: #424242;
+}
+
+@media (max-width: 800px) {
+  .articleContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .articleCard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
