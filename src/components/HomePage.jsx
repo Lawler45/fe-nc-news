@@ -14,6 +14,9 @@ const HomePage = () => {
       });
   }, [setArticles]);
 
+  if (loading) return <p>Loading...</p>
+
+
   return (
     <section className="articleContainer">
         {articles.map((article) => {

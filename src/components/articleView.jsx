@@ -19,6 +19,9 @@ const ArticleView = () => {
     });
   }, []);
 
+  if (loading) return <p>Loading...</p>
+
+
   const publishedDate = article.created_at
     ? article.created_at.slice(0, 10)
     : "";
