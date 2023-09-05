@@ -58,7 +58,14 @@ img {
   padding-left: 4%;
 }
 
-@media (max-width: 800px) {
+.commentsContainer {
+  border: 2px solid #424242;
+}
+
+.individualComment {
+  border: 2px solid #424242;
+}
+@media (max-width: 900px) {
   .articleContainer {
     display: flex;
     flex-wrap: wrap;
