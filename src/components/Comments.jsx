@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { getComments } from "./api";
-=======
 import { getComments } from "../api";
->>>>>>> vote
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -11,11 +7,6 @@ const Comments = () => {
   const [loading, setLoading] = useState(false);
 
   const { article_id } = useParams();
-<<<<<<< HEAD
-  console.log(article_id)
-=======
-  console.log(article_id);
->>>>>>> vote
 
   useEffect(() => {
     setLoading(true);
@@ -23,7 +14,7 @@ const Comments = () => {
       setLoading(false);
       setComments(comments);
     });
-  }, [setComments]);
+  }, []);
 
   if (loading) return <p>Loading...</p>;
 
