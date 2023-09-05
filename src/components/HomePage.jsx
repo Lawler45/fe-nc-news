@@ -10,19 +10,10 @@ const HomePage = () => {
     getArticles("https://lawler-news.onrender.com/api/articles").then(
       (data) => {
         setLoading(false);
-<<<<<<< HEAD
-        setArticles(data)
-      });
-  }, [setArticles]);
-
-  if (loading) return <p>Loading...</p>
-
-=======
         setArticles(data);
       }
     );
   }, []);
->>>>>>> vote
 
   return (
     <section className="articleContainer">

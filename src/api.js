@@ -27,11 +27,9 @@ const getComments = (article_id) => {
 };
 
 const handleUpVote = (article_id) => {
-  return articleApi
-    .patch(`/${article_id}`, { inc_votes: 1 })
-    .catch((error) => {
-      console.error(error, "Error upvoting article");
-    });
+  return articleApi.patch(`/${article_id}`, { inc_votes: 1 }).catch((error) => {
+    console.error(error, "Error upvoting article");
+  });
 };
 
 const handleDownVote = (article_id) => {
@@ -41,4 +39,19 @@ const handleDownVote = (article_id) => {
       console.error(error, "Error upvoting article");
     });
 };
-export { getArticles, getArticle, getComments, handleDownVote, handleUpVote };
+
+const postComment = (article_id, user, comment) => {
+  return articleApi
+    .post(`/${article_id}/comments`, {username:user, body:comment})
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+export {
+  getArticles,
+  getArticle,
+  getComments,
+  handleDownVote,
+  handleUpVote,
+  postComment,
+};

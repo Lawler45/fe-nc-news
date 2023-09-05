@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { getArticle, handleDownVote, handleUpVote } from "../api";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Comments from "./comments";
+import Comments from "./Comments";
+import CommentAdder from "./commentAdder";
 
 const ArticleView = () => {
   const [article, setArticle] = useState({});
@@ -64,6 +65,7 @@ const ArticleView = () => {
         <p className="date">Published {publishedDate}</p>
       </section>
       <Comments />
+      <CommentAdder article_id={article_id}/>
     </div>
   );
 };
