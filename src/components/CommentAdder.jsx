@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "./userProvider";
+import { UserContext } from "./UserProvider";
 import { postComment } from "../api";
 
 const CommentAdder = ({ article_id }) => {

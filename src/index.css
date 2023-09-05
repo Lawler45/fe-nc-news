@@ -53,9 +53,9 @@ img {
   justify-content: flex-start;
 }
 
-.homeLink {
+.navBar {
   display: flex;
-  padding-left: 4%;
+  justify-content: space-around;
 }
 
 .commentsContainer {

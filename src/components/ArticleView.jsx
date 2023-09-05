@@ -3,7 +3,7 @@ import { getArticle, handleDownVote, handleUpVote } from "../api";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Comments from "./Comments";
-import CommentAdder from "./commentAdder";
+import CommentAdder from "./CommentAdder";
 
 const ArticleView = () => {
   const [article, setArticle] = useState({});
