@@ -41,6 +41,22 @@ const ArticleView = () => {
       });
   };
 
+  const handleDownVote = () => {
+    const apiUrl = `https://lawler-news.onrender.com/api/articles/${article_id}`;
+
+    axios
+      .patch(apiUrl)
+      .then((response) => {
+        console.log(response)
+        const updatedVotes = votes - 1;
+        console.log(updatedVotes, 'update voted ')
+        setVotes(updatedVotes);
+      })
+      .catch((error) => {
+        console.error(error, "Error upvoting article");
+      });
+  };
+
   return (
     <div className="articleView">
       <h2 className="title">{article.title}</h2>
@@ -49,6 +65,8 @@ const ArticleView = () => {
       <p className="articleBody">{article.body}</p>
       <p className="votes">Vote: {votes}</p>
       <button className="voteButton"onClick={handleUpVote}>Up Vote!</button>
+      <button className="voteButton"onClick={handleDownVote}>Down Vote!</button>
+
       <p className="date">Published {publishedDate}</p>
     </div>
   );
