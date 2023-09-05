@@ -65,8 +65,12 @@ img {
 .individualComment {
   border: 2px solid #424242;
 }
+<<<<<<< HEAD
 
 @media (max-width: 800px) {
+=======
+@media (max-width: 900px) {
+>>>>>>> vote
   .articleContainer {
     display: flex;
     flex-wrap: wrap;
