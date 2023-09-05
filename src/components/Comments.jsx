@@ -7,6 +7,7 @@ const Comments = () => {
   const [loading, setLoading] = useState(false);
 
   const { article_id } = useParams();
+  console.log(article_id);
 
   useEffect(() => {
     setLoading(true);
@@ -24,7 +25,7 @@ const Comments = () => {
     <section className="commentsContainer">
       {comments.map((comment) => {
         return (
-          <section className="individualComment" key={comment.comment_id}>
+          <section className="individualComment">
             <p>Posted by {comment.author}</p>
             <p className="comment">{comment.body}</p>
             <p>Votes: {comment.votes}</p>
