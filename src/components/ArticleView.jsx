@@ -9,6 +9,8 @@ const ArticleView = () => {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [comments, setComments] = useState([]);
+
 
   const { article_id } = useParams();
   const { created_at } = useParams();
@@ -64,8 +66,8 @@ const ArticleView = () => {
         </div>
         <p className="date">Published {publishedDate}</p>
       </section>
-      <Comments />
-      <CommentAdder article_id={article_id}/>
+      <CommentAdder setComments={setComments} article_id={article_id}/>
+      <Comments comments={comments} setComments={setComments}/>
     </div>
   );
 };

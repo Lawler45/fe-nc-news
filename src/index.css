@@ -65,6 +65,40 @@ img {
 .individualComment {
   border: 2px solid #424242;
 }
+
+.commentForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.commentInput {
+  margin: 1%;
+  height: 4rem;
+  width: 70%;
+}
+
+.commentLabel {
+  font-size: 1.3rem;
+  text-align: center;
+  width: 15%;
+}
+
+.commentBtn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 1%;
+  margin: 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  height: 4rem;
+  width: 5rem%;
+}
+
+
 @media (max-width: 900px) {
   .articleContainer {
     display: flex;

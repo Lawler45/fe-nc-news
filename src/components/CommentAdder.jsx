@@ -2,33 +2,35 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "./UserProvider";
 import { postComment } from "../api";
 
-const CommentAdder = ({ article_id }) => {
-  const [comment, setComment] = useState();
-  const [post, setPost] = useState({});
+const CommentAdder = ({ article_id, setComments }) => {
+  const [comment, setComment] = useState({author: '', body: '', votes:0});
   const { user } = useContext(UserContext);
+  const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleTyping = (event) => {
-    setComment(event.target.value);
+    setComment({author: user, body:event.target.value, votes:0});
+    console.log()
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPost({
-      author: user,
-      body: comment,
-      votes: 0,
-    });
-    console.log(comment);
-    postComment(article_id, user, comment);
-    setComment("");
+    if (!disabled) {
+      setComments((currentComments) => [comment, ...currentComments]);
+      console.log(comment.body)
+      postComment(article_id, comment.author, comment.body,)
+      setComment("");
+      setDisabled(true);
+    }
   };
 
   return (
     <form className="commentForm">
-      <label htmlFor="comment">Add Comment:</label>
-      <textarea id="comment" value={comment} onChange={handleTyping}></textarea>
-      <button onClick={handleSubmit}>Submit!</button>
+      <label className= 'commentLabel' htmlFor="comment">Add Comment:</label>
+      <textarea className="commentInput" value={comment.body} onChange={handleTyping}></textarea>
+      <button className="commentBtn" onClick={handleSubmit} disabled={disabled}>
+        {disabled ? "Posting..." : "Submit!"}
+      </button>
     </form>
   );
 };

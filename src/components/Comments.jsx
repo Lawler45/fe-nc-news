@@ -2,8 +2,7 @@ import { getComments } from "../api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Comments = () => {
-  const [comments, setComments] = useState([]);
+const Comments = ({comments, setComments}) => {
   const [loading, setLoading] = useState(false);
 
   const { article_id } = useParams();
@@ -24,7 +23,7 @@ const Comments = () => {
     <section className="commentsContainer">
       {comments.map((comment) => {
         return (
-          <section className="individualComment">
+          <section key={comment.comment_id}className="individualComment">
             <p>Posted by {comment.author}</p>
             <p className="comment">{comment.body}</p>
             <p>Votes: {comment.votes}</p>
