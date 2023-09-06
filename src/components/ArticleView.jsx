@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { getArticle, handleDownVote, handleUpVote } from "../api";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Comments from "./Comments";
 import CommentAdder from "./CommentAdder";
 

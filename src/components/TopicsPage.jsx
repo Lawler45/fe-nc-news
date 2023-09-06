@@ -1,21 +1,29 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
-import { getArticles } from "../api";
+import { getTopicArticles } from "../api";
+import { useParams } from "react-router-dom";
 
-const HomePage = () => {
+
+const TopicsPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const { topic } = useParams();
+  console.log(topic)
+
   useEffect(() => {
     setLoading(true);
-    getArticles("https://lawler-news.onrender.com/api/articles").then(
+    getTopicArticles(topic).then(
       (data) => {
         setLoading(false);
         setArticles(data);
       }
     );
-  }, []);
+  }, [topic]);
 
   return (
+    <div>
+        <h3 className="topic title">{topic} news</h3>
     <section className="articleContainer">
       {articles.map((article) => {
         return (
@@ -33,7 +41,8 @@ const HomePage = () => {
         );
       })}
     </section>
+    </div>
   );
 };
 
-export default HomePage;
+export default TopicsPage;

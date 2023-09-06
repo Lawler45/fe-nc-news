@@ -14,6 +14,12 @@ const getArticles = () => {
     });
 };
 
+const getTopicArticles = (topic) => {
+  return articleApi.get(`?topic=${topic}`).then(({ data }) => {
+    return data.articles;
+  });
+};
+
 const getArticle = (article_id) => {
   return articleApi.get(`/${article_id}`).then(({ data }) => {
     return data.article;
@@ -55,4 +61,5 @@ export {
   handleDownVote,
   handleUpVote,
   postComment,
+  getTopicArticles
 };

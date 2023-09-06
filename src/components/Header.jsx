@@ -24,7 +24,7 @@ const NavBar = () => {
       <Link to={"/topics/football"}>
         <p className="footballLink">Football</p>
       </Link>
-      <Link to={"/cooking"}>
+      <Link to={"/topics/cooking"}>
         <p className="cookingLink">Cooking</p>
       </Link>
     </div>
