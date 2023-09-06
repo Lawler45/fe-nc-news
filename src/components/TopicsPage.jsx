@@ -1,23 +1,29 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getTopicArticles } from "../api";
+import { useParams } from "react-router-dom";
 
-const CodingPage = () => {
+
+const TopicsPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const { topic } = useParams();
+  console.log(topic)
+
   useEffect(() => {
     setLoading(true);
-    getTopicArticles('coding').then(
+    getTopicArticles(topic).then(
       (data) => {
         setLoading(false);
         setArticles(data);
       }
     );
-  }, []);
+  }, [topic]);
 
   return (
     <div>
-        <h3 className="topic title">Coding News</h3>
+        <h3 className="topic title">{topic} news</h3>
     <section className="articleContainer">
       {articles.map((article) => {
         return (
@@ -39,4 +45,4 @@ const CodingPage = () => {
   );
 };
 
-export default CodingPage;
+export default TopicsPage;

@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
+import { HomePageSortBy } from "./SortArticles";
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [itemReq, setItemReq] = useState(
+    `https://lawler-news.onrender.com/api/articles`
+  );
   useEffect(() => {
     setLoading(true);
-    getArticles("https://lawler-news.onrender.com/api/articles").then(
+    getArticles(itemReq).then(
       (data) => {
         setLoading(false);
         setArticles(data);
@@ -18,6 +22,7 @@ const HomePage = () => {
   return (
     <div>
     <h3 className="topic title">Home Page</h3>
+    <HomePageSortBy setItemReq={setItemReq} />
 <section className="articleContainer">
   {articles.map((article) => {
     return (
