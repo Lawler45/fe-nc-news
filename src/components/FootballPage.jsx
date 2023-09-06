@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
-import { getArticles } from "../api";
+import { getTopicArticles } from "../api";
 
-const HomePage = () => {
+const FootballPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    getArticles("https://lawler-news.onrender.com/api/articles").then(
+    getTopicArticles('football').then(
       (data) => {
         setLoading(false);
         setArticles(data);
@@ -17,7 +17,7 @@ const HomePage = () => {
 
   return (
     <div>
-    <h3 className="topic title">Home Page</h3>
+    <h3 className="topic title">Football News</h3>
 <section className="articleContainer">
   {articles.map((article) => {
     return (
@@ -39,4 +39,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default FootballPage;

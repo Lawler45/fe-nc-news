@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getTopicArticles } from "../api";
 
-const CodingPage = () => {
+const CookingPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    getTopicArticles('coding').then(
+    getTopicArticles('cooking').then(
       (data) => {
         setLoading(false);
         setArticles(data);
@@ -17,7 +17,7 @@ const CodingPage = () => {
 
   return (
     <div>
-        <h3 className="topic title">Coding News</h3>
+        <h3 className="topic title">Cooking News</h3>
     <section className="articleContainer">
       {articles.map((article) => {
         return (
@@ -39,4 +39,4 @@ const CodingPage = () => {
   );
 };
 
-export default CodingPage;
+export default CookingPage;
