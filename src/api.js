@@ -3,21 +3,35 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const articleApi = axios.create({
-  baseURL: "https://lawler-news.onrender.com/api/articles",
+  // baseURL: "https://lawler-news.onrender.com/api",
+  baseURL: "http://localhost:9090/api"
 });
 
 const getArticles = () => {
-  return axios
-    .get("https://lawler-news.onrender.com/api/articles")
+  return articleApi.get("/articles")
     .then(({ data }) => {
       return data.articles;
     });
 };
 
 const getTopicArticles = (topic) => {
-  return articleApi.get(`?topic=${topic}`).then(({ data }) => {
+  return articleApi.get(`/articles?topic=${topic}`).then(({ data }) => {
     return data.articles;
   });
+};
+
+const getSortedArticles = (sortBy, order) => {
+  return articleApi.get(`/articles?sort_by=${sortBy}&order=${order}`)
+    .then(({ data }) => {
+      return data.articles;
+    });
+};
+
+const getSortedTopicArticles = (topic, sortBy, order) => {
+  return articleApi.get(`/articles?topic=${topic}&sort_by=${sortBy}&order=${order}`)
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 const getArticle = (article_id) => {
@@ -61,5 +75,7 @@ export {
   handleDownVote,
   handleUpVote,
   postComment,
-  getTopicArticles
+  getTopicArticles,
+  getSortedArticles,
+  getSortedTopicArticles
 };

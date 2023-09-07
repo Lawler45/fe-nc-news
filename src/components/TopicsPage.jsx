@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getTopicArticles } from "../api";
 import { useParams } from "react-router-dom";
+import TopicPageSortBy from "./SortTopicArticles";
+
 
 
 const TopicsPage = () => {
@@ -9,7 +11,6 @@ const TopicsPage = () => {
   const [loading, setLoading] = useState(false);
 
   const { topic } = useParams();
-  console.log(topic)
 
   useEffect(() => {
     setLoading(true);
@@ -24,6 +25,7 @@ const TopicsPage = () => {
   return (
     <div>
         <h3 className="topic title">{topic} news</h3>
+        <TopicPageSortBy  setArticles={setArticles}/>
     <section className="articleContainer">
       {articles.map((article) => {
         return (
