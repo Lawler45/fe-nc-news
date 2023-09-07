@@ -101,6 +101,17 @@ img {
 }
 
 
+.deleteBtn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 1%
+}
+
+.deleteBtn:disabled {
+  background-color: grey
+}
+
 @media (max-width: 900px) {
   .articleContainer {
     display: flex;

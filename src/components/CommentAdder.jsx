@@ -10,14 +10,12 @@ const CommentAdder = ({ article_id, setComments }) => {
 
   const handleTyping = (event) => {
     setComment({author: user, body:event.target.value, votes:0});
-    console.log()
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!disabled) {
       setComments((currentComments) => [comment, ...currentComments]);
-      console.log(comment.body)
       postComment(article_id, comment.author, comment.body,)
       setComment("");
       setDisabled(true);

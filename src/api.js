@@ -35,39 +35,44 @@ const getSortedTopicArticles = (topic, sortBy, order) => {
 };
 
 const getArticle = (article_id) => {
-  return articleApi.get(`/${article_id}`).then(({ data }) => {
+  return articleApi.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;
   });
 };
 
 const getComments = (article_id) => {
-  return articleApi.get(`/${article_id}/comments`).then(({ data }) => {
+  return articleApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
     return data.comments;
   });
 };
 
 const handleUpVote = (article_id) => {
-  return articleApi.patch(`/${article_id}`, { inc_votes: 1 }).catch((error) => {
+  return articleApi.patch(`/articles/${article_id}`, { inc_votes: 1 }).catch((error) => {
     console.error(error, "Error upvoting article");
   });
 };
 
 const handleDownVote = (article_id) => {
-  return articleApi
-    .patch(`/${article_id}`, { inc_votes: -1 })
+  return articleApi.patch(`/articles/${article_id}`, { inc_votes: -1 })
     .catch((error) => {
       console.error(error, "Error upvoting article");
     });
 };
 
 const postComment = (article_id, user, comment) => {
-  console.log(comment)
-  return articleApi
-    .post(`/${article_id}/comments`, {username:user, body:comment})
+  return articleApi.post(`/articles/${article_id}/comments`, {username:user, body:comment})
     .then(({ data }) => {
       return data.comment;
     });
 };
+
+const deleteComment = (comment_id) => {
+return axios.delete(`http://localhost:9090/api/comments/${comment_id}`)
+.then(({data}) => {
+  console.log(data,'apidata')
+  // return data.comments
+})
+}
 export {
   getArticles,
   getArticle,
@@ -77,5 +82,6 @@ export {
   postComment,
   getTopicArticles,
   getSortedArticles,
-  getSortedTopicArticles
+  getSortedTopicArticles,
+  deleteComment
 };

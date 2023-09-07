@@ -3,8 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const HomePageSortBy = ({ setArticles }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [sortBy, setSortBy] = useState(searchParams.get("sort_by") || "");
+  const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
 
   const handleOrder = (order) => {
@@ -21,7 +20,7 @@ const HomePageSortBy = ({ setArticles }) => {
         setArticles(articles);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
       });
   };
 
