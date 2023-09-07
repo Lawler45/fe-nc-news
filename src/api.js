@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const articleApi = axios.create({
-  // baseURL: "https://lawler-news.onrender.com/api",
-  baseURL: "http://localhost:9090/api"
+  baseURL: "https://lawler-news.onrender.com/api",
+  // baseURL: "http://localhost:9090/api"
 });
 
 const getArticles = () => {
