@@ -67,10 +67,10 @@ const postComment = (article_id, user, comment) => {
 };
 
 const deleteComment = (comment_id) => {
-return axios.delete(`http://localhost:9090/api/comments/${comment_id}`)
+return articleApi.delete(`/comments/${comment_id}`)
 .then(({data}) => {
-  console.log(data,'apidata')
-  // return data.comments
+
+
 })
 }
 export {

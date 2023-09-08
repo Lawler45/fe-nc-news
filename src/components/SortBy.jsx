@@ -1,9 +1,8 @@
-import { getSortedArticles, getArticles } from "../api";
-import { useSearchParams } from "react-router-dom";
+import fetchArticles from "./fetchArticles";
 import { useState, useEffect } from "react";
 
-const HomePageSortBy = ({ setArticles }) => {
-  const [sortBy, setSortBy] = useState("created_at");
+const SortBy = ({ setArticles, isTopicPage, topic }) => {
+  const [sortBy, setSortBy] = useState(isTopicPage ? "" : "created_at");
   const [order, setOrder] = useState("desc");
 
   const handleOrder = (order) => {
@@ -14,18 +13,18 @@ const HomePageSortBy = ({ setArticles }) => {
     setSortBy(sortBy);
   };
 
-  const fetchArticles = () => {
-    getSortedArticles(sortBy, order)
+  const fetchArticlesData = () => {
+    fetchArticles(isTopicPage ? topic : null, sortBy, order)
       .then((articles) => {
         setArticles(articles);
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
   };
 
   useEffect(() => {
-    fetchArticles();
+    fetchArticlesData();
   }, [sortBy, order]);
 
   return (
