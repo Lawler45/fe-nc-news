@@ -1,22 +1,26 @@
 #root {
-  background-color: #023020	;
-  font-family:'Times New Roman', Times, serif;
+  background-color: #023020;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body {
+  margin: 0%;
 }
 
 .articleCard:hover {
-  background-color: white; 
-  color: #023020	;
+  background-color: white;
+  color: #023020;
 }
 
 .header {
   color: white;
   text-align: center;
   padding: 4px;
-  background-color: #668F80;
+  background-color: #668f80;
 }
 
 h1 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 a {
@@ -65,8 +69,8 @@ img {
   padding: 2%;
   color: white;
   font-weight: bold;
-  border-bottom: 0.2rem solid #668F80;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-bottom: 0.2rem solid #668f80;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .sortBy {
@@ -79,8 +83,6 @@ img {
   justify-content: flex-start;
 }
 
-
-
 .author {
   display: flex;
   justify-content: flex-start;
@@ -89,9 +91,9 @@ img {
 .navBar {
   display: flex;
   justify-content: space-around;
-  border-top: 0.2rem solid  white;
-  border-bottom: 0.2rem solid  white;
-font-weight: bold;
+  border-top: 0.2rem solid white;
+  border-bottom: 0.2rem solid white;
+  font-weight: bold;
 }
 
 .commentsContainer {
@@ -121,7 +123,7 @@ font-weight: bold;
 }
 
 .commentBtn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 1%;
@@ -134,16 +136,15 @@ font-weight: bold;
   width: 5rem;
 }
 
-
 .deleteBtn {
   background-color: red;
   border: none;
   color: white;
-  padding: 1%
+  padding: 1%;
 }
 
 .deleteBtn:disabled {
-  background-color: grey
+  background-color: grey;
 }
 
 .articleView {
@@ -177,7 +178,7 @@ font-weight: bold;
 }
 @media (max-width: 600px) {
   .articleContainer {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
   .articleCard {
     display: flex;
