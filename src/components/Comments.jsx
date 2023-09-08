@@ -1,6 +1,7 @@
 import { getComments } from "../api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import CommentRemover from "./CommentRemover";
 
 const Comments = ({comments, setComments}) => {
   const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ const Comments = ({comments, setComments}) => {
     });
   }, []);
 
+
   if (loading) return <p>Loading...</p>;
 
   if (comments.length === 0)
@@ -27,6 +29,7 @@ const Comments = ({comments, setComments}) => {
             <p>Posted by {comment.author}</p>
             <p className="comment">{comment.body}</p>
             <p>Votes: {comment.votes}</p>
+            <CommentRemover comment_id={comment.comment_id} author={comment.author} setComments={setComments} comments={comments} />
           </section>
         );
       })}

@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
-import { HomePageSortBy } from "./SortArticles";
+import SortBy from "./SortBy";
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [itemReq, setItemReq] = useState(
-    `https://lawler-news.onrender.com/api/articles`
-  );
+  
   useEffect(() => {
     setLoading(true);
-    getArticles(itemReq).then(
+    getArticles().then(
       (data) => {
         setLoading(false);
         setArticles(data);
@@ -21,8 +19,8 @@ const HomePage = () => {
 
   return (
     <div>
-    <h3 className="topic title">Home Page</h3>
-    <HomePageSortBy setItemReq={setItemReq} />
+    <h3 className="title">Home Page</h3>
+    <SortBy setArticles={setArticles} isTopicPage={false}/>
 <section className="articleContainer">
   {articles.map((article) => {
     return (

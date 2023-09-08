@@ -28,6 +28,15 @@ const ArticleView = () => {
     ? article.created_at.slice(0, 10)
     : "";
 
+    if (!article) {
+      return (
+        <div>
+          <h2>Article not found</h2>
+          <p>The requested article does not exist.</p>
+        </div>
+      );
+    }
+
   return (
     <div>
       <section className="articleView">

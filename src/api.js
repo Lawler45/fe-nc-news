@@ -3,56 +3,75 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const articleApi = axios.create({
-  baseURL: "https://lawler-news.onrender.com/api/articles",
+  baseURL: "https://lawler-news.onrender.com/api",
 });
 
-const getArticles = () => {
-  return axios
-    .get("https://lawler-news.onrender.com/api/articles")
+const getArticles = (topic, sortBy, order) => {
+  let endpoint = "/articles";
+
+  if (topic) {
+    endpoint += `?topic=${topic}`;
+  }
+  if (!topic & sortBy) {
+    endpoint += `?sort_by=${sortBy}`;
+  }
+if (topic & sortBy){
+  `endpoint += &sort_by=${sortBy}`
+}
+  if (order) {
+    endpoint += `&order=${order}`;
+  }
+
+  
+
+  return articleApi
+    .get(endpoint)
     .then(({ data }) => {
       return data.articles;
+    })
+    .catch((error) => {
+      throw error;
     });
 };
 
-const getTopicArticles = (topic) => {
-  return articleApi.get(`?topic=${topic}`).then(({ data }) => {
-    return data.articles;
-  });
-};
-
 const getArticle = (article_id) => {
-  return articleApi.get(`/${article_id}`).then(({ data }) => {
+  return articleApi.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;
   });
 };
 
 const getComments = (article_id) => {
-  return articleApi.get(`/${article_id}/comments`).then(({ data }) => {
+  return articleApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
     return data.comments;
   });
 };
 
 const handleUpVote = (article_id) => {
-  return articleApi.patch(`/${article_id}`, { inc_votes: 1 }).catch((error) => {
-    console.error(error, "Error upvoting article");
-  });
+  return articleApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .catch((error) => {
+      console.error(error, "Error upvoting article");
+    });
 };
 
 const handleDownVote = (article_id) => {
   return articleApi
-    .patch(`/${article_id}`, { inc_votes: -1 })
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
     .catch((error) => {
       console.error(error, "Error upvoting article");
     });
 };
 
 const postComment = (article_id, user, comment) => {
-  console.log(comment)
   return articleApi
-    .post(`/${article_id}/comments`, {username:user, body:comment})
+    .post(`/articles/${article_id}/comments`, { username: user, body: comment })
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+const deleteComment = (comment_id) => {
+  return articleApi.delete(`/comments/${comment_id}`).then(({ data }) => {});
 };
 export {
   getArticles,
@@ -61,5 +80,5 @@ export {
   handleDownVote,
   handleUpVote,
   postComment,
-  getTopicArticles
+  deleteComment,
 };
