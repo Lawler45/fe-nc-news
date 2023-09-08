@@ -14,18 +14,30 @@ const SortBy = ({ setArticles, isTopicPage, topic }) => {
   };
 
   const fetchArticlesData = () => {
-    fetchArticles(isTopicPage ? topic : null, sortBy, order)
-      .then((articles) => {
-        setArticles(articles);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log(topic, sortBy, order, "in fetchartdata");
+
+    if (isTopicPage) {
+      fetchArticles(topic, sortBy, order)
+        .then((articles) => {
+          setArticles(articles);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      fetchArticles(null, sortBy, order)
+        .then((articles) => {
+          setArticles(articles);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   useEffect(() => {
-    fetchArticlesData();
-  }, [sortBy, order]);
+    fetchArticlesData(topic, sortBy, order);
+  }, [sortBy, order, topic]);
 
   return (
     <div className="sortAndOrderForm">
@@ -79,4 +91,4 @@ const SortBy = ({ setArticles, isTopicPage, topic }) => {
   );
 };
 
-export default HomePageSortBy;
+export default SortBy;

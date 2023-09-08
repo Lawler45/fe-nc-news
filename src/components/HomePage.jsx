@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 import { getArticles } from "../api";
-import  HomePageSortBy  from "./SortHomeArticles";
+import SortBy from "./SortBy";
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -20,7 +20,7 @@ const HomePage = () => {
   return (
     <div>
     <h3 className="title">Home Page</h3>
-    <HomePageSortBy setArticles={setArticles} />
+    <SortBy setArticles={setArticles} isTopicPage={false}/>
 <section className="articleContainer">
   {articles.map((article) => {
     return (
