@@ -3,6 +3,9 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+body {
+  background-color: #023020;
+}
 
 .articleCard:hover {
   background-color: white;
