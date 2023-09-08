@@ -1,22 +1,21 @@
-import fetchArticles from "./fetchArticles";
 import { useState, useEffect } from "react";
+import { getArticles } from "../api";
 
 const SortBy = ({ setArticles, isTopicPage, topic }) => {
-  const [sortBy, setSortBy] = useState(isTopicPage ? "" : "created_at");
+  const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
 
-  const handleOrder = (order) => {
-    setOrder(order);
+  const handleOrderChange = (event) => {
+    setOrder(event.target.value);
   };
 
-  const handleSortBy = (sortBy) => {
-    setSortBy(sortBy);
+  const handleSortByChange = (event) => {
+    setSortBy(event.target.value);
   };
 
   const fetchArticlesData = () => {
-
     if (isTopicPage) {
-      fetchArticles(topic, sortBy, order)
+      getArticles(sortBy, order, topic)
         .then((articles) => {
           setArticles(articles);
         })
@@ -24,7 +23,7 @@ const SortBy = ({ setArticles, isTopicPage, topic }) => {
           console.log(error);
         });
     } else {
-      fetchArticles(null, sortBy, order)
+      getArticles(sortBy, order, null)
         .then((articles) => {
           setArticles(articles);
         })
@@ -41,50 +40,17 @@ const SortBy = ({ setArticles, isTopicPage, topic }) => {
   return (
     <div className="sortAndOrderForm">
       <form className="sortBy">
-        <input
-          name="category"
-          type="radio"
-          defaultChecked={true}
-          onClick={() => {
-            handleSortBy("created_at");
-          }}
-        />
-        All
-        <input
-          name="category"
-          type="radio"
-          onClick={() => {
-            handleSortBy("created_at");
-          }}
-        />
-        Date
-        <input
-          name="category"
-          type="radio"
-          onClick={() => {
-            handleSortBy("votes");
-          }}
-        />
-        Votes
+        <select name="category" onChange={handleSortByChange} value={sortBy}>
+          <option value="created_at">All</option>
+          <option value="created_at">Date</option>
+          <option value="votes">Votes</option>
+        </select>
       </form>
       <form className="order">
-        <input
-          name="category"
-          type="radio"
-          onClick={() => {
-            handleOrder("asc");
-          }}
-        />
-        Ascending
-        <input
-          name="category"
-          type="radio"
-          defaultChecked={true}
-          onClick={() => {
-            handleOrder("desc");
-          }}
-        />
-        Descending
+        <select name="category" onChange={handleOrderChange} value={order}>
+          <option value="desc">Descending</option>
+          <option value="asc">Ascending</option>
+        </select>
       </form>
     </div>
   );

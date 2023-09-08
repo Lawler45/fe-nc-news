@@ -6,7 +6,6 @@ import SortBy from "./SortBy";
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  
   useEffect(() => {
     setLoading(true);
     getArticles().then(
@@ -19,7 +18,9 @@ const HomePage = () => {
 
   return (
     <div>
-    <h3 className="title">Home Page</h3>
+      <div className="titleSortBy">
+    <h3 className="title">HOME PAGE</h3>
+    </div>
     <SortBy setArticles={setArticles} isTopicPage={false}/>
 <section className="articleContainer">
   {articles.map((article) => {

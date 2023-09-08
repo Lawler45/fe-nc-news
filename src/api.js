@@ -6,24 +6,20 @@ const articleApi = axios.create({
   baseURL: "https://lawler-news.onrender.com/api",
 });
 
-const getArticles = (topic, sortBy, order) => {
+const getArticles = ( sortBy, order, topic) => {
   let endpoint = "/articles";
-
   if (topic) {
     endpoint += `?topic=${topic}`;
   }
-  if (!topic & sortBy) {
+  if (topic === null || topic === undefined & sortBy) {
     endpoint += `?sort_by=${sortBy}`;
   }
-if (topic & sortBy){
-  `endpoint += &sort_by=${sortBy}`
+if (topic !== null || topic !== undefined & sortBy){
+  endpoint += `&sort_by=${sortBy}`
 }
   if (order) {
     endpoint += `&order=${order}`;
   }
-
-  
-
   return articleApi
     .get(endpoint)
     .then(({ data }) => {

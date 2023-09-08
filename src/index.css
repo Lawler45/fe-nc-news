@@ -1,20 +1,36 @@
 #root {
-  background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #023020	;
+  font-family:'Times New Roman', Times, serif;
+}
 
+.articleCard:hover {
+  background-color: white; 
+  color: #023020	;
 }
 
 .header {
-  color: #424242;
+  color: white;
   text-align: center;
   padding: 4px;
-  background-color: #DDD0C8;
+  background-color: #668F80;
+}
+
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 a {
-  color: #424242;
+  color: white;
   text-decoration: none;
 }
+
+a:hover {
+  color: #023020;
+}
+
+/* p {
+  color: white;
+} */
 
 .articleContainer {
   display: grid;
@@ -27,16 +43,17 @@ a {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #424242;
   margin: 1rem;
-  border-radius: 8px;
   max-width: 90%;
   max-height: 90%;
   align-self: center;
   justify-self: center;
   padding: 1rem 0;
   text-align: center;
-  background-color: #DDD0C8;
+}
+
+.published {
+  font-size: x-small;
 }
 
 img {
@@ -45,10 +62,24 @@ img {
 }
 
 .title {
-  background-color: #424242;
   padding: 2%;
-  color: #DDD0C8;
+  color: white;
+  font-weight: bold;
+  border-bottom: 0.2rem solid #668F80;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.sortBy {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.5%;
+}
+.order {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
 
 .author {
   display: flex;
@@ -58,6 +89,9 @@ img {
 .navBar {
   display: flex;
   justify-content: space-around;
+  border-top: 0.2rem solid  white;
+  border-bottom: 0.2rem solid  white;
+font-weight: bold;
 }
 
 .commentsContainer {
@@ -112,14 +146,50 @@ img {
   background-color: grey
 }
 
+.articleView {
+  color: white;
+}
+
+.individualComment {
+  color: white;
+}
+.commentLabel {
+  color: white;
+}
+
 @media (max-width: 900px) {
   .articleContainer {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
   }
   .articleCard {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    max-width: 90%;
+    max-height: 90%;
+    align-self: center;
+    justify-self: center;
+    padding: 1rem 0;
+    text-align: center;
   }
-
+}
+@media (max-width: 600px) {
+  .articleContainer {
+    grid-template-columns: 1fr; 
+  }
+  .articleCard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    max-width: 90%;
+    max-height: 90%;
+    align-self: center;
+    justify-self: center;
+    padding: 1rem 0;
+    text-align: center;
+  }
 }

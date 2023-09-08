@@ -5,12 +5,12 @@ const ArticleCard = (prop) => {
   return (
     <Link to={`/articles/${prop.article_id}`}>
       <div className="articleCard">
+      <p className="published">Published: {date}</p>
+      <img src={prop.article_img_url}></img>
         <h2>{prop.title}</h2>
         <p>Written by {prop.author}</p>
-        <img src={prop.article_img_url}></img>
         <p>Comments: {prop.comment_count}</p>
         <p>Votes: {prop.votes}</p>
-        <p>Published: {date}</p>
       </div>
     </Link>
   );

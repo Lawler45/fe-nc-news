@@ -19,13 +19,15 @@ const TopicsPage = () => {
     });
   }, [topic]);
 
-  console.log(topic);
+  const upperCaseTopic = topic.toUpperCase()
 
   if (topic === "coding" || topic === "football" || topic === "cooking") {
     return (
       <div>
-        <h3 className="topic title">{topic} news</h3>
+        <div className="titleSortBy">
+        <h3 className="title">{upperCaseTopic} NEWS</h3>
         <SortBy setArticles={setArticles} isTopicPage={true} topic={topic} />
+        </div>
         <section className="articleContainer">
           {articles.map((article) => {
             return (
