@@ -32,9 +32,7 @@ a:hover {
   color: #023020;
 }
 
-/* p {
-  color: white;
-} */
+
 
 .articleContainer {
   display: grid;
@@ -57,7 +55,7 @@ a:hover {
 }
 
 .published {
-  font-size: x-small;
+  font-size: small;
 }
 
 img {
