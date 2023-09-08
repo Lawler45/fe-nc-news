@@ -14,7 +14,6 @@ const SortBy = ({ setArticles, isTopicPage, topic }) => {
   };
 
   const fetchArticlesData = () => {
-    console.log(topic, sortBy, order, "in fetchartdata");
 
     if (isTopicPage) {
       fetchArticles(topic, sortBy, order)

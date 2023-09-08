@@ -6,6 +6,8 @@ import HomePage from "./components/HomePage";
 import ArticleView from "./components/ArticleView";
 import TopicsPage from "./components/TopicsPage";
 import { Routes, Route } from "react-router-dom";
+import NotFoundPage from './components/NotFoundPage';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/articles/:article_id" element={<ArticleView />} />
         <Route path="/topics/:topic" element={<TopicsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
   );
