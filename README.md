@@ -1,8 +1,41 @@
-# React + Vite
+# Lawler News Front End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Hosted link:** [Lawler News API](https://lawler-news.onrender.com/api)
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This Api was created for the back-end project for [Northcoders](https://www.northcoders.com/). It provides database access for users. Allowing them to retrieve information such as articles, comments and users as well as allowing them to update the database by adding or deleting comments or updating the votes count. Below are a list of technologies used for this project: 
+
+
+
+- Express
+- Node.js
+- node-pg
+- pg-format
+- dotenv
+- husky
+- jest
+
+Whilst developing this app I used real-world development practices such as AGILE methodology. Multiple git branches were used, pushed and pulled to organize new features. The code alsoe adheres to the MVC design pattern, using models to interact with the database and controllers handling requests and responses. This project was written with Test Driven Development (TDD) using Jest.
+
+## Instructions
+
+If you want to test and develop my project please follow the instructions below.
+
+### 1. First clone the repo in your terminal
+
+```
+git clone https://github.com/Lawler45/lawler-news-front-end.git
+```
+
+### 2. Ensure that you install the required dependencies
+
+```
+npm i
+```
+
+### 3. Create .env files in root directory
+
+```sql
+npm run dev
+```
