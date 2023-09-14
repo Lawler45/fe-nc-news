@@ -4,28 +4,31 @@
 
 ## About
 
-This Api was created for the back-end project for [Northcoders](https://www.northcoders.com/). It provides database access for users. Allowing them to retrieve information such as articles, comments and users as well as allowing them to update the database by adding or deleting comments or updating the votes count. Below are a list of technologies used for this project: 
+This Front End project connects with the API created in the [Back End project](https://github.com/Lawler45/lawler-news-back-end) at [Northcoders](https://www.northcoders.com/). This full stack application took 2 weeks in total to create, a week for each project. The technologies used for this project are detailed below:
 
 
+- JSX
+- React
+- React Router
+- Vite
+- CSS
 
-- Express
-- Node.js
-- node-pg
-- pg-format
-- dotenv
-- husky
-- jest
+This web application allows users to read news articles that they can filter down by specific topic as well as sort them by either the date the article was published or the amount of votes an article in ascending or decsending order. Please see the applications features below:
 
-Whilst developing this app I used real-world development practices such as AGILE methodology. Multiple git branches were used, pushed and pulled to organize new features. The code alsoe adheres to the MVC design pattern, using models to interact with the database and controllers handling requests and responses. This project was written with Test Driven Development (TDD) using Jest.
+
+- Sort and filter articles
+- Add and delete comments
+- User context for the comments and article authors
+- Fully responsive layout for all devices
+
+
 
 ## Instructions
-
-If you want to test and develop my project please follow the instructions below.
 
 ### 1. First clone the repo in your terminal
 
 ```
-git clone https://github.com/Lawler45/lawler-news-front-end.git
+git clone https://github.com/Lawler45/lawler-news-back-end.git
 ```
 
 ### 2. Ensure that you install the required dependencies
@@ -38,4 +41,18 @@ npm i
 
 ```sql
 npm run dev
+```
+
+### 4. Setup and seed the local database if you want to send local requests
+
+```
+npm run setup-dbs
+
+npm run seed
+```
+
+### 5. Test database using jest.
+
+```
+npm t
 ```
