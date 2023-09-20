@@ -1,6 +1,6 @@
 # Lawler News Front End
 
-**Hosted link:** [Lawler News](https://main--lawler-news.netlify.app/)
+**Hosted link:** [Lawler News](https://lawler-news.netlify.app/)
 
 ## About
 
